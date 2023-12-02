@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>std</th>
+                <th>section</th>
+                <th>school</th>
+                <th>ph_no</th>
+            </tr>
+        </thead>
+        {% for i in students %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.std}}</td>
+            <td>{{i.section}}</td>
+            <td>{{i.school}}</td>
+            <td>{{i.ph_no}}</td>
+            <td><a href="{% url 'update' i.id %}"><button type="button">Update</button></a></td>
+
+            <td><a href="delete/{{i.id}}/"><button type="button"> delete</button></a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <h4><a href="create_new_student"><button type="button">add employee</button></a></h4>
+
+    {% endblock %}
+</body>
+</html>

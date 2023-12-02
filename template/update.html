@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>   
+  {% block content %}
+    <h2>update Student</h2>
+     <form method="POST" action="{% url 'update' stu.id %}">
+      {% csrf_token %} 
+      <label >name<input type="text" name="new_name" value="{{stu.name}}"></label>
+      <label >std<input type="text" name="new_std" value="{{stu.std}}"></label>
+      <label >section<input type="text" name="new_section" value="{{stu.section}}"></label>
+      <label >school<input type="text" name="new_school" value="{{stu.school}}"></label>
+      <label >ph_no<input type="text" name="new_ph_no" value="{{stu.ph_no}}"></label>
+        
+      <input type="submit" value="update">
+      <input type="reset" value="clear">
+     </form>
+   {% endblock %}
+    
+</body>
+</html>
